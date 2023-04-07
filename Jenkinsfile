@@ -53,14 +53,14 @@ stage('Push Image to DockerHub') {
 stage('deploy the application to kubernetes'){
 steps{
   sh 'sudo chmod 600 ./terraform_files/project.pem'    
-  sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/project.pem medicure-deployment.yml ubuntu@172.31.21.225:/home/ubuntu/'
-  sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/project.pem medicure-service.yml ubuntu@172.31.21.225:/home/ubuntu/'
+  sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/project.pem medicure-deployment.yml ubuntu@172.31.46.170:/home/ubuntu/'
+  sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/project.pem medicure-service.yml ubuntu@172.31.46.170:/home/ubuntu/'
 script{
   try{
-  sh 'ssh -o StrictHostKeyChecking=no -i ./terraform_files/project.pem ubuntu@172.31.21.225 kubectl apply -f .'
+  sh 'ssh -o StrictHostKeyChecking=no -i ./terraform_files/project.pem ubuntu@172.31.46.170 kubectl apply -f .'
   }catch(error)
   {
-  sh 'ssh -o StrictHostKeyChecking=no -i ./terraform_files/project.pem ubuntu@172.31.21.225 kubectl apply -f .'
+  sh 'ssh -o StrictHostKeyChecking=no -i ./terraform_files/project.pem ubuntu@172.31.46.170 kubectl apply -f .'
   }
 }
 }
