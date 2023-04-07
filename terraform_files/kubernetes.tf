@@ -4,7 +4,7 @@ region = "ap-south-1"
 resource "aws_instance" "kubernetes-server" {
  ami = "ami-03a933af70fa97ad2"
  instance_type = "t2.medium"
- vpc_security_group_ids = ["sg-0667b958966051a4a"]
+ vpc_security_group_ids = ["sg-0b4797ee905b749d1"]
  key_name = "project"
    root_block_device {
       volume_size = 20
