@@ -34,7 +34,7 @@ stage('Push Image to DockerHub') {
       steps {
      withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
       sh "sudo docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-      sh 'sudo docker push shaileshbora/insure_me_project1:1.0'
+      sh 'sudo docker push shaileshbora/medicure_project:1.0'
       }
       }
       }
